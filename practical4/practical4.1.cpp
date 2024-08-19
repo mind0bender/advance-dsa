@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void TopDownMerge(int B[], int iBegin, int iMiddle, int iEnd, int A[]) {
+void merge(int B[], int iBegin, int iMiddle, int iEnd, int A[]) {
   int i = iBegin, j = iMiddle;
 
   for (int k = iBegin; k < iEnd; k++) {
@@ -17,20 +17,18 @@ void TopDownMerge(int B[], int iBegin, int iMiddle, int iEnd, int A[]) {
   }
 }
 
-void TopDownSplitMerge(int B[], int iBegin, int iEnd, int A[]) {
+void splitMerge(int B[], int iBegin, int iEnd, int A[]) {
   if (iEnd - iBegin <= 1) return;
 
   int iMiddle = (iEnd + iBegin) / 2;
 
-  TopDownSplitMerge(A, iBegin, iMiddle, B);
-  TopDownSplitMerge(A, iMiddle, iEnd, B);
+  splitMerge(A, iBegin, iMiddle, B);
+  splitMerge(A, iMiddle, iEnd, B);
 
-  TopDownMerge(B, iBegin, iMiddle, iEnd, A);
+  merge(B, iBegin, iMiddle, iEnd, A);
 }
 
-void TopDownMergeSort(int A[], int B[], int n) {
-  TopDownSplitMerge(A, 0, n, B);
-}
+void mergeSort(int A[], int B[], int n) { splitMerge(A, 0, n, B); }
 
 int main() {
   int n;
@@ -47,7 +45,7 @@ int main() {
     B[i] = ele;
   }
 
-  TopDownMergeSort(A, B, n);
+  mergeSort(A, B, n);
 
   cout << "Sorted elements are: ";
   for (int ele : A) {

@@ -53,21 +53,20 @@ int main() {
     } else {
       cout << "Bookshelf1 Underflowed" << endl;
     }
-  }
-
-  cout << "Bookshelf 1" << endl;
-  for (Book book : bookshelf1) {
-    book.display();
-  }
-  if (bookshelf1.empty()) {
-    cout << "Empty" << endl;
-  }
-  cout << "Bookshelf 2" << endl;
-  for (Book book : bookshelf2) {
-    book.display();
-  }
-  if (bookshelf2.empty()) {
-    cout << "Empty" << endl;
+    cout << "Bookshelf 1" << endl;
+    for (Book book : bookshelf1) {
+      book.display();
+    }
+    if (bookshelf1.empty()) {
+      cout << "Empty" << endl;
+    }
+    cout << "Bookshelf 2" << endl;
+    for (Book book : bookshelf2) {
+      book.display();
+    }
+    if (bookshelf2.empty()) {
+      cout << "Empty" << endl;
+    }
   }
 
   cout << "Yash Gupta\t23BCS11317" << endl;
